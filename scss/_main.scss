@@ -2,63 +2,54 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    z-index: 1;
     overflow: hidden;
     background: linear-gradient(to top, #a8edea, #fed6e3);
 
-
-    .content {
+    .scene1-content {
         width: 100%;
-        height: 100vh;
-        position: fixed;
-        z-index: 1;
-    
-        .cloud1 {
+        height: 100%;
+
+        .cloud {
             position: absolute;
-            width: 500px;
-            top: 5%;
-            left: 0%;
             opacity: 0;
-            animation: cloud1 15s linear infinite;
-            animation-delay: 1s;
             animation-direction:reverse;
-        }
-    
-        .cloud2 {
-            position: absolute;
-            width: 300px;
-            top: 30%;
-            left: 100%;
-            opacity: 0;
-            animation: cloud2 10s linear infinite;
-            animation-delay: 2s;
-            animation-direction:reverse;
-    
-        }
-    
-        .cloud3 {
-            position: absolute;
-            width: 250px;
-            top: 50%;
-            left: 0%;
-            opacity: 0;
-            animation: cloud3 10s linear infinite;
-            animation-delay: 2s;
-            animation-direction:reverse;
-    
+
+            &.cloud1 {
+                width: 500px;
+                top: 5%;
+                left: 0%;
+                animation: cloud1 15s linear infinite;
+                animation-delay: 1s;
+            }
+
+            &.cloud2 {
+                width: 300px;
+                top: 30%;
+                left: 100%;
+                animation: cloud2 10s linear infinite;
+                animation-delay: 2s;
+            }
+
+            &.cloud3 {
+                width: 250px;
+                top: 50%;
+                left: 0%;
+                animation: cloud3 10s linear infinite;
+                animation-delay: 2s;
+            }
         }
 
         .notes {
             position: absolute;
             width: 150px;
             height: 200px;
-            top: 35%;
+            top: 30%;
             left: 62%;
             transform: rotate(40deg);
             display: flex;
             flex-direction: column;
 
-            >div {
+            li {
                 width: 50px;
                 height: 50px;
                 display: flex;
@@ -68,12 +59,6 @@
                 animation: note-anim 2s infinite ease;
                 animation-fill-mode: forwards;
                 -webkit-animation: note-anim 2s infinite ease;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
 
                 .note1, .note4 {
                     width: 30px;
@@ -86,89 +71,41 @@
             }
         }
 
-        // .notes2 {
-        //     position: absolute;
-        //     width: 150px;
-        //     height: 200px;
-        //     top: 40%;
-        //     left: 35%;
-        //     transform: rotate(-35deg) ;
-        //     display: flex;
-        //     flex-direction: column;
-
-        //     >div {
-        //         width: 50px;
-        //         height: 50px;
-        //         display: flex;
-        //         justify-content: center;
-        //         align-items: center;
-
-        //         animation: note-anim 2s infinite ease;
-        //         animation-fill-mode: forwards;
-        //         -webkit-animation: note-anim 2s infinite ease;
-
-        //         img {
-        //             width: 100%;
-        //             height: 100%;
-        //             object-fit: cover;
-        //         }
-
-        //         .note5, .note8 {
-        //             width: 30px;
-        //             height: 30px;
-        //         }
-
-        //         &:nth-of-type(even) {
-        //             margin-left: 10px;
-        //         }
-        //     }
-        // }
-
-        .scroll {
-            position: absolute;
-            bottom: 0px;
-            left: 30%;
-            width: 100px;
-            height: 200px;
+        .scroll-arrow {
+            position: fixed;
+            bottom: 70px;
+            left: 35%;
+            width: 20px;
+            height: 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 50px;
             animation: scroll 2s linear infinite;
 
-            .arrow {
-                width: 20px;
-                height: 60px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+            li {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                transform: rotate(45deg);
                 opacity: 0;
                 animation: opacity 2s linear infinite;
 
-                li {
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                    transform: rotate(45deg);
-
-                    &:nth-of-type(1) {
-                        border-right: 3px solid #656eb437;
-                        border-bottom: 3px solid #656eb437;
-                    }
-
-                    &:nth-of-type(2) {
-                        border-right: 3px solid rgba(121, 132, 214, 0.658);
-                        border-bottom: 3px solid rgba(121, 132, 214, 0.658);
-                    }
-
-                    &:nth-of-type(3) {
-                        border-right: 3px solid #656EB4;
-                        border-bottom: 3px solid #656EB4;
-                    }
-
+                &:nth-of-type(1) {
+                    border-right: 3px solid #656eb437;
+                    border-bottom: 3px solid #656eb437;
                 }
+
+                &:nth-of-type(2) {
+                    border-right: 3px solid rgba(121, 132, 214, 0.658);
+                    border-bottom: 3px solid rgba(121, 132, 214, 0.658);
+                }
+
+                &:nth-of-type(3) {
+                    border-right: 3px solid #656EB4;
+                    border-bottom: 3px solid #656EB4;
+                }
+
             }
         }
     }
@@ -179,32 +116,27 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    z-index: 2;
     background: linear-gradient(to top, #545479, #a8edea);
 
-    .content2 {
+    .scene2-content {
         width: 100%;
         height: 100vh;
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 1;
     
         .title {
             position: absolute;
-            z-index: 1;
-            top: 5%;
+            top: 7%;
             left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Playfair Display';
-            font-size: 7vw;
+            font: bold 7vw/1 'Playfair Display';
             color: #656EB4;
+            transform: translateX(-50%);
             transition: 2s;
     
             span {
                 width: 100%;
                 float: left;
-                // -webkit-clip-path: polygon(100% 0, 100% 100%, 0 80%, 0 80%);
                 clip-path: polygon(100% 0, 100% 100%, 0 80%, 0 80%);
                 transform: translateY(-50px);
                 opacity: 0;
@@ -214,36 +146,34 @@
                 &::after {
                     display: block;
                     content: 'shear Madness';
+                    margin-top: -10px;
                     transform: rotateX(180deg);
                     opacity: 0.05;
-                    margin-top: -30px;
                 }
                 
             }
         }
     
-        .main {
+        .salon1 {
             position: absolute;
-            z-index: 1;
             bottom: 50px;
             left: 50%;
-            height: 500px;
+            height: 65%;
             transform: translateX(-50%);
             transition: 1s;
         }
     
-        .main2 {
+        .salon2 {
             position: absolute;
-            z-index: 1;
-            bottom: -420px;
+            bottom: -55%;
             left: 50%;
-            height: 500px;
+            height: 65%;
             transform: translateX(-50%) rotateX(180deg);
             opacity: 0.1;
             transition: 1s;
         }
 
-        .back {
+        .liquid {
             position: absolute;
             top: -350px;
             left: 0;
@@ -252,23 +182,21 @@
             transition: 1s;
         }
 
-        .txt {
+        .story {
             display: none;
             position: absolute;
-            top: 35%;
+            top: 40%;
             left: 40%;
-            width: 1000px;
-            height: 500px;
 
-            .typing {
-                font: 20px/1.5 'HY크리스탈M';
+            .story-typing {
+                font: 24px/1.5 'HY크리스탈M';
                 color: #fff;
 
                 &::after {
                     content: '';
-                    margin-left: .4rem;
+                    margin-left: 5px;
                     border-right: 2px solid #eee;
-                    animation: cursor .9s infinite steps(2);
+                    animation: cursor 0.9s infinite steps(2);
                 }
 
             }
@@ -294,37 +222,39 @@
                 top: 80%;
                 left: 75%;
                 transform: translate(-50%, -50%);
-                font-family: 'Playfair Display';
-                font-size: 30px;
-                font-weight: bold;
+                font: bold 30px/1 'Playfair Display';
                 letter-spacing: 3px;
                 color: #fff;
+                transition: 0.5s;
             }
 
             &:hover {
-                transform: scale(1.1);
+                p {
+                    font-size: 40px;
+                }
             }
         }
-    
     }
 
     &.on {
-        .content2 {
+        .scene2-content {
 
-            .main {
+            .salon1 {
                 left: 20%;
                 bottom: 0px;
-                width: 300px;
+                width: 350px;
             }
-            .main2 {
+
+            .salon2 {
                 left: 20%;
-                bottom: -380px;
-                width: 300px;
+                bottom: -450px;
+                width: 350px;
             }
 
             .title {
+                z-index: 1;
                 left: 20%;
-                top: 220px;
+                top: 30%;
                 font-size: 4vw;
                 color: #fff;
 
@@ -335,20 +265,12 @@
                 }
             }
 
-            .back {
+            .liquid {
                 top: 0;
                 opacity: 1;
             }
 
-            .people {
-                display: flex;
-                opacity: 0;
-                animation: opacity 1s linear;
-                animation-fill-mode: forwards;
-                animation-delay: 1s;
-            }
-
-            .txt {
+            .story {
                 display: block;
             }
 
@@ -360,14 +282,6 @@
 
     }
     
-
-}
-
-.scene3 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
 }
 
 @keyframes titleAnimation {
@@ -412,29 +326,29 @@
 
 @keyframes note-anim
 {
-0% {
-  opacity: 0;
-  transform: translate(0px,50px) translateZ(0);
-}
-30% {
-  transform:rotate(15deg) translate(-10px,0px) translateZ(0);
-}
-45% {
-  opacity: 1;
-}  
-60% {
-  transform:rotate(-15deg) translate(10px,-50px) translateZ(0);
-}
-100% {
-  opacity: 0;
-  transform:rotate(0deg) translate(0px,-80px) translateZ(0);
-}
+    0% {
+        opacity: 0;
+        transform: translate(0px,50px) translateZ(0);
+    }
+    30% {
+        transform:rotate(15deg) translate(-10px,0px) translateZ(0);
+    }
+    45% {
+        opacity: 1;
+    }  
+    60% {
+        transform:rotate(-15deg) translate(10px,-50px) translateZ(0);
+    }
+    100% {
+        opacity: 0;
+        transform:rotate(0deg) translate(0px,-80px) translateZ(0);
+    }
 }
 
 
 @keyframes scroll {
-    0% {bottom: 0px;}
-    100% {bottom: -50px;}
+    0% {bottom: 70px;}
+    100% {bottom: 20px;}
 }
 
 @keyframes cursor {

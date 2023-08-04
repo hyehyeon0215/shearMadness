@@ -32,57 +32,50 @@ a {
   position: relative;
   width: 100%;
   height: 100vh;
-  z-index: 1;
   overflow: hidden;
   background: linear-gradient(to top, #a8edea, #fed6e3);
 }
-.scene1 .content {
+.scene1 .scene1-content {
   width: 100%;
-  height: 100vh;
-  position: fixed;
-  z-index: 1;
+  height: 100%;
 }
-.scene1 .content .cloud1 {
+.scene1 .scene1-content .cloud {
   position: absolute;
+  opacity: 0;
+  animation-direction: reverse;
+}
+.scene1 .scene1-content .cloud.cloud1 {
   width: 500px;
   top: 5%;
   left: 0%;
-  opacity: 0;
   animation: cloud1 15s linear infinite;
   animation-delay: 1s;
-  animation-direction: reverse;
 }
-.scene1 .content .cloud2 {
-  position: absolute;
+.scene1 .scene1-content .cloud.cloud2 {
   width: 300px;
   top: 30%;
   left: 100%;
-  opacity: 0;
   animation: cloud2 10s linear infinite;
   animation-delay: 2s;
-  animation-direction: reverse;
 }
-.scene1 .content .cloud3 {
-  position: absolute;
+.scene1 .scene1-content .cloud.cloud3 {
   width: 250px;
   top: 50%;
   left: 0%;
-  opacity: 0;
   animation: cloud3 10s linear infinite;
   animation-delay: 2s;
-  animation-direction: reverse;
 }
-.scene1 .content .notes {
+.scene1 .scene1-content .notes {
   position: absolute;
   width: 150px;
   height: 200px;
-  top: 35%;
+  top: 30%;
   left: 62%;
   transform: rotate(40deg);
   display: flex;
   flex-direction: column;
 }
-.scene1 .content .notes > div {
+.scene1 .scene1-content .notes li {
   width: 50px;
   height: 50px;
   display: flex;
@@ -92,56 +85,42 @@ a {
   animation-fill-mode: forwards;
   -webkit-animation: note-anim 2s infinite ease;
 }
-.scene1 .content .notes > div img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.scene1 .content .notes > div .note1, .scene1 .content .notes > div .note4 {
+.scene1 .scene1-content .notes li .note1, .scene1 .scene1-content .notes li .note4 {
   width: 30px;
   height: 30px;
 }
-.scene1 .content .notes > div:nth-of-type(even) {
+.scene1 .scene1-content .notes li:nth-of-type(even) {
   margin-left: 10px;
 }
-.scene1 .content .scroll {
-  position: absolute;
-  bottom: 0px;
-  left: 30%;
-  width: 100px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  animation: scroll 2s linear infinite;
-}
-.scene1 .content .scroll .arrow {
+.scene1 .scene1-content .scroll-arrow {
+  position: fixed;
+  bottom: 70px;
+  left: 35%;
   width: 20px;
   height: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  opacity: 0;
-  animation: opacity 2s linear infinite;
+  justify-content: center;
+  animation: scroll 2s linear infinite;
 }
-.scene1 .content .scroll .arrow li {
+.scene1 .scene1-content .scroll-arrow li {
   width: 100%;
   height: 100%;
   position: relative;
   transform: rotate(45deg);
+  opacity: 0;
+  animation: opacity 2s linear infinite;
 }
-.scene1 .content .scroll .arrow li:nth-of-type(1) {
+.scene1 .scene1-content .scroll-arrow li:nth-of-type(1) {
   border-right: 3px solid rgba(101, 110, 180, 0.2156862745);
   border-bottom: 3px solid rgba(101, 110, 180, 0.2156862745);
 }
-.scene1 .content .scroll .arrow li:nth-of-type(2) {
+.scene1 .scene1-content .scroll-arrow li:nth-of-type(2) {
   border-right: 3px solid rgba(121, 132, 214, 0.658);
   border-bottom: 3px solid rgba(121, 132, 214, 0.658);
 }
-.scene1 .content .scroll .arrow li:nth-of-type(3) {
+.scene1 .scene1-content .scroll-arrow li:nth-of-type(3) {
   border-right: 3px solid #656EB4;
   border-bottom: 3px solid #656EB4;
 }
@@ -150,29 +129,25 @@ a {
   position: relative;
   width: 100%;
   height: 100vh;
-  z-index: 2;
   background: linear-gradient(to top, #545479, #a8edea);
 }
-.scene2 .content2 {
+.scene2 .scene2-content {
   width: 100%;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
 }
-.scene2 .content2 .title {
+.scene2 .scene2-content .title {
   position: absolute;
-  z-index: 1;
-  top: 5%;
+  top: 7%;
   left: 50%;
-  transform: translateX(-50%);
-  font-family: "Playfair Display";
-  font-size: 7vw;
+  font: bold 7vw/1 "Playfair Display";
   color: #656EB4;
+  transform: translateX(-50%);
   transition: 2s;
 }
-.scene2 .content2 .title span {
+.scene2 .scene2-content .title span {
   width: 100%;
   float: left;
   clip-path: polygon(100% 0, 100% 100%, 0 80%, 0 80%);
@@ -181,33 +156,31 @@ a {
   animation: titleAnimation 3s ease 1;
   animation-fill-mode: forwards;
 }
-.scene2 .content2 .title span::after {
+.scene2 .scene2-content .title span::after {
   display: block;
   content: "shear Madness";
+  margin-top: -10px;
   transform: rotateX(180deg);
   opacity: 0.05;
-  margin-top: -30px;
 }
-.scene2 .content2 .main {
+.scene2 .scene2-content .salon1 {
   position: absolute;
-  z-index: 1;
   bottom: 50px;
   left: 50%;
-  height: 500px;
+  height: 65%;
   transform: translateX(-50%);
   transition: 1s;
 }
-.scene2 .content2 .main2 {
+.scene2 .scene2-content .salon2 {
   position: absolute;
-  z-index: 1;
-  bottom: -420px;
+  bottom: -55%;
   left: 50%;
-  height: 500px;
+  height: 65%;
   transform: translateX(-50%) rotateX(180deg);
   opacity: 0.1;
   transition: 1s;
 }
-.scene2 .content2 .back {
+.scene2 .scene2-content .liquid {
   position: absolute;
   top: -350px;
   left: 0;
@@ -215,25 +188,23 @@ a {
   width: 100%;
   transition: 1s;
 }
-.scene2 .content2 .txt {
+.scene2 .scene2-content .story {
   display: none;
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 40%;
-  width: 1000px;
-  height: 500px;
 }
-.scene2 .content2 .txt .typing {
-  font: 20px/1.5 "HY크리스탈M";
+.scene2 .scene2-content .story .story-typing {
+  font: 24px/1.5 "HY크리스탈M";
   color: #fff;
 }
-.scene2 .content2 .txt .typing::after {
+.scene2 .scene2-content .story .story-typing::after {
   content: "";
-  margin-left: 0.4rem;
+  margin-left: 5px;
   border-right: 2px solid #eee;
   animation: cursor 0.9s infinite steps(2);
 }
-.scene2 .content2 .next {
+.scene2 .scene2-content .next {
   position: absolute;
   right: -400px;
   bottom: -400px;
@@ -241,69 +212,55 @@ a {
   height: 350px;
   transition: 1s;
 }
-.scene2 .content2 .next img {
+.scene2 .scene2-content .next img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.5s;
 }
-.scene2 .content2 .next p {
+.scene2 .scene2-content .next p {
   position: absolute;
   top: 80%;
   left: 75%;
   transform: translate(-50%, -50%);
-  font-family: "Playfair Display";
-  font-size: 30px;
-  font-weight: bold;
+  font: bold 30px/1 "Playfair Display";
   letter-spacing: 3px;
   color: #fff;
+  transition: 0.5s;
 }
-.scene2 .content2 .next:hover {
-  transform: scale(1.1);
+.scene2 .scene2-content .next:hover p {
+  font-size: 40px;
 }
-.scene2.on .content2 .main {
+.scene2.on .scene2-content .salon1 {
   left: 20%;
   bottom: 0px;
-  width: 300px;
+  width: 350px;
 }
-.scene2.on .content2 .main2 {
+.scene2.on .scene2-content .salon2 {
   left: 20%;
-  bottom: -380px;
-  width: 300px;
+  bottom: -450px;
+  width: 350px;
 }
-.scene2.on .content2 .title {
+.scene2.on .scene2-content .title {
+  z-index: 1;
   left: 20%;
-  top: 220px;
+  top: 30%;
   font-size: 4vw;
   color: #fff;
 }
-.scene2.on .content2 .title span::after {
+.scene2.on .scene2-content .title span::after {
   display: none;
 }
-.scene2.on .content2 .back {
+.scene2.on .scene2-content .liquid {
   top: 0;
   opacity: 1;
 }
-.scene2.on .content2 .people {
-  display: flex;
-  opacity: 0;
-  animation: opacity 1s linear;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
-}
-.scene2.on .content2 .txt {
+.scene2.on .scene2-content .story {
   display: block;
 }
-.scene2.on .content2 .next {
+.scene2.on .scene2-content .next {
   right: 0;
   bottom: 0;
-}
-
-.scene3 {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  z-index: 2;
 }
 
 @keyframes titleAnimation {
@@ -383,10 +340,10 @@ a {
 }
 @keyframes scroll {
   0% {
-    bottom: 0px;
+    bottom: 70px;
   }
   100% {
-    bottom: -50px;
+    bottom: 20px;
   }
 }
 @keyframes cursor {
@@ -397,121 +354,193 @@ a {
     border-right: 2px solid #eee;
   }
 }
-body {
-  width: 100%;
-  height: 100%;
-}
-body .suspect {
+.suspect {
   width: 100%;
   height: 100vh;
   background-color: #D9E9ED;
-  position: relative;
 }
-body .suspect .top {
+.suspect .suspect-top {
   width: 100%;
   height: 30%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+.suspect .suspect-top .line {
+  height: 30%;
   position: relative;
 }
-body .suspect .top .line {
+.suspect .suspect-top .line ul {
   position: absolute;
-  top: 10px;
+  top: 0;
   left: 0;
   width: 500%;
-  height: 30%;
+  height: 100%;
   display: flex;
   gap: 20px;
   animation: line 60s linear infinite;
 }
-body .suspect .top .line li {
+.suspect .suspect-top .line ul li {
   width: 20%;
   height: 100%;
 }
-body .suspect .top .line li img {
+.suspect .suspect-top .line ul li img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.2;
 }
-body .suspect .top .logo {
-  width: 300px;
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
+.suspect .suspect-top .logo {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-body .suspect .bottom {
+.suspect .suspect-top .logo a {
+  display: block;
+  width: 20%;
+  height: 100%;
+}
+.suspect .suspect-top .logo a img {
+  width: 100%;
+  object-fit: cover;
+}
+.suspect .suspect-bottom {
   width: 100%;
   height: 70%;
   position: relative;
-  overflow: hidden;
+  padding: 100px;
 }
-body .suspect .bottom .suspect_content {
-  width: 1000px;
-  height: 400px;
+.suspect .suspect-bottom .enter-txt {
   position: absolute;
-  top: 50%;
-  left: 10%;
-  transform: translateY(-50%);
-  background-repeat: no-repeat;
+  z-index: 1;
+  left: 100px;
+  bottom: 100px;
+  font: 30px/1.5 "HY크리스탈M";
+  color: #fff;
 }
-body .suspect .bottom .suspect_content .click {
+.suspect .suspect-bottom .enter-txt span {
+  color: #D6656E;
+}
+.suspect .suspect-bottom .enter-txt.off {
   display: none;
-  color: #656EB3;
-  font-family: "HY크리스탈M";
-  font-size: 18px;
-  text-align: left;
-  margin-left: 40px;
 }
-body .suspect .bottom .suspect_content .click span {
-  color: #D5646D;
+.suspect .suspect-bottom .suspect-content {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
-body .suspect .bottom .suspect_content .people {
+.suspect .suspect-bottom .suspect-content .suspect-init {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init > .left {
+  width: 90%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.suspect .suspect-bottom .suspect-content .suspect-init > .left .click-txt {
+  display: none;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init > .left .suspect-people {
   position: absolute;
   top: 20%;
-  left: 50%;
-  z-index: 2;
+  left: 45%;
+  transform: translateX(-45%);
   height: 300px;
   width: 80%;
   display: flex;
-  transform: translateX(-50%);
 }
-body .suspect .bottom .suspect_content .people li {
+.suspect .suspect-bottom .suspect-content .suspect-init > .left .suspect-people > li {
   flex: 1;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-body .suspect .bottom .suspect_content .people li:hover img {
-  transform: scale(1.2);
-}
-body .suspect .bottom .suspect_content .people li:nth-of-type(even) {
+.suspect .suspect-bottom .suspect-content .suspect-init > .left .suspect-people > li:nth-of-type(even) {
   margin-top: 30px;
 }
-body .suspect .bottom .enter {
-  position: absolute;
-  z-index: 1;
-  left: 100px;
-  bottom: 100px;
-  color: #fff;
-  font-family: "HY크리스탈M";
-  font-size: 25px;
-  line-height: 1.5;
+.suspect .suspect-bottom .suspect-content .suspect-init > .right {
+  display: none;
 }
-body .suspect .bottom .enter span {
+.suspect .suspect-bottom .suspect-content .suspect-init.active {
+  display: flex;
+  gap: 20px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left {
+  display: block;
+  width: 85%;
+  height: 100%;
+  margin: 0 20px;
+  position: relative;
+  background-size: auto;
+  top: auto;
+  left: auto;
+  transform: translateX(0);
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .click-txt {
+  display: block;
+  position: absolute;
+  left: 30px;
+  top: 0;
+  color: #656EB3;
+  font: 22px/1 "HY크리스탈M";
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .click-txt span {
   color: #D6656E;
 }
-body .suspect .bottom .sign {
-  display: none;
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 300px;
+  width: 80%;
+  display: flex;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li:hover img {
+  transform: scale(1.2);
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li:nth-of-type(even) {
+  margin-top: 30px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right {
+  display: block;
+  width: 15%;
+  height: 100%;
+  position: relative;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign {
+  display: flex;
   width: 80px;
   height: 300px;
   padding: 10px;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  right: 15%;
+  left: 50%;
   top: 15%;
+  transform: translateX(-50%);
 }
-body .suspect .bottom .sign .top {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .top {
   flex: 1;
   width: 100%;
   height: 100%;
@@ -520,20 +549,20 @@ body .suspect .bottom .sign .top {
   align-items: center;
   position: relative;
 }
-body .suspect .bottom .sign .top .circle1 {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .top .circle1 {
   width: 90%;
   height: 80%;
   background-color: #ddd;
   border-radius: 50px 50px 0 0;
   box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
-body .suspect .bottom .sign .top .square1 {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .top .square1 {
   width: 100%;
   height: 20%;
   background-color: #ddd;
   box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
-body .suspect .bottom .sign .center {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center {
   flex: 4;
   width: 85%;
   height: 100%;
@@ -542,31 +571,31 @@ body .suspect .bottom .sign .center {
   border-left: 1px solid #eee;
   box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
-body .suspect .bottom .sign .center ul {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center ul {
   width: 100%;
   position: relative;
   top: -200%;
   animation: down 15s linear infinite;
 }
-body .suspect .bottom .sign .center ul li {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center ul li {
   width: 100px;
   height: 20px;
   margin-bottom: 20px;
   transform: skewY(30deg);
 }
-body .suspect .bottom .sign .center ul li:nth-of-type(odd) {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center ul li:nth-of-type(odd) {
   background-color: #ED2124;
 }
-body .suspect .bottom .sign .center ul li:nth-of-type(even) {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center ul li:nth-of-type(even) {
   background-color: #323895;
 }
-body .suspect .bottom .sign .center ul:hover {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center ul:hover {
   animation-play-state: paused;
 }
-body .suspect .bottom .sign .center p {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .center p {
   writing-mode: vertical-lr;
 }
-body .suspect .bottom .sign .bottom {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .bottom {
   flex: 1;
   width: 100%;
   height: 100%;
@@ -574,14 +603,14 @@ body .suspect .bottom .sign .bottom {
   flex-direction: column;
   align-items: center;
 }
-body .suspect .bottom .sign .bottom .circle2 {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .bottom .circle2 {
   width: 90%;
   height: 80%;
   background-color: #ddd;
   border-radius: 0 0 50px 50px;
   box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
-body .suspect .bottom .sign .bottom .square2 {
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .bottom .square2 {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -589,8 +618,84 @@ body .suspect .bottom .sign .bottom .square2 {
   background-color: #ddd;
   box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
 }
-body .suspect_cursor {
-  font-size: 20px;
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .next2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .right .salon-sign .next2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list {
+  flex: 6;
+  position: relative;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .left {
+  flex: 1;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .left > img {
+  width: 100%;
+  height: 100%;
+  object-fit: auto;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right {
+  flex: 2;
+  padding: 50px;
+  background-color: #fff;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li.on {
+  display: flex;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-btn {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-btn img {
+  flex: 1;
+  width: 150px;
+  transition: 1s;
+  cursor: pointer;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-btn img:hover {
+  transform: scale(1.2);
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-btn p {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 30px/1 "HY크리스탈M";
+}
+.suspect .suspect-bottom .suspect-content .suspect-box.active {
+  display: flex;
+}
+
+.suspect-cursor {
+  font-size: 30px;
   width: 10em;
   height: 10em;
   background: #000;
@@ -600,7 +705,7 @@ body .suspect_cursor {
   box-shadow: 0 0 0 5000px #000, 1em -1em 0 5000px #000, -1em 1em 0 5000px #000, -1em -1em 0 5000px #000;
   cursor: none;
 }
-body .suspect_cursor::after {
+.suspect-cursor::after {
   content: "";
   position: absolute;
   top: 0;
@@ -612,7 +717,7 @@ body .suspect_cursor::after {
   opacity: 0;
   transition: 0.5s linear;
 }
-body .suspect_cursor.out::after {
+.suspect-cursor.out::after {
   opacity: 1;
 }
 

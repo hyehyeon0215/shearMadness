@@ -1,6 +1,5 @@
 const scene1 = document.querySelector(".scene1");
 const scene2 = document.querySelector(".scene2");
-const scene3 = document.querySelector(".scene3");
 
 const scene2_scroll = scene2.offsetTop;
 const base = -200;
@@ -19,7 +18,7 @@ window.addEventListener("scroll", ()=> {
 })
 
 
-const typing = document.querySelector(".typing")
+const typing = document.querySelector(".story-typing")
 const typing_txt = "언제나 말 많고 분주한 ‘쉬어매드니스 미용실’의 일상이 뒤집히는 날! \n\
 미용실 위층에서 일어난 살인사건의 용의자를 반드시 찾아야 한다!\n\n\
 사건의 피해자는 미용실 위층에 살고 있던 한 사람\n\
