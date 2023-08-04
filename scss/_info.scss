@@ -1,0 +1,44 @@
+.info {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to top,  #545479, #a8edea, #fed6e3);
+    
+    article {
+        width: 100%;
+        height: 100vh;
+
+        .info-inner {
+            width: 1500px;
+            height: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+.info-navi {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    right: 50px;
+    padding: 50px 10px;
+    border-radius: 20px;
+    background-color: #D6656E;
+
+    li {
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            font: bold 20px/1 "맑은 고딕";
+            color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        
+        &:last-of-type {
+            a {
+                border-bottom: none;
+            }
+        }
+    }
+}

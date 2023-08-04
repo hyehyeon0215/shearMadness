@@ -2,6 +2,7 @@
     width: 100%;
     height: 100vh;
     background-color: #D9E9ED;
+    overflow: hidden;
 
     .suspect-top {
         width: 100%;
@@ -181,6 +182,10 @@
                                 width: 100%;
                                 height: 100%;
                                 cursor: pointer;
+
+                                img {
+                                    transition: 0.5s;
+                                }
                         
                                 &:hover {
                                     img {
@@ -331,10 +336,15 @@
                 width: 100%;
                 height: 100%;
                 display: none;
+                position: relative;
 
                 .suspect-list {
-                    flex: 6;
+                    flex: 8;
+                    width: 100%;
+                    height: 90%;
                     position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
     
                     >li {
                         display: none;
@@ -343,22 +353,92 @@
                         position: absolute;
                         top: 0;
                         left: 0;
+                        align-items: center;
+                        gap: 20px;
     
                         >.left {
+                            width: 100%;
+                            height: 100%;
                             flex: 1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             
                             >img {
-                                width: 100%;
                                 height: 100%;
-                                object-fit: auto;
+                                object-fit: cover;
                             }
                         }
-    
+
                         >.right {
-                            flex: 2;
-                            padding: 50px;
-                            background-color: #fff;
+                            flex: 1;
+                            padding: 30px 50px;
+                            height: 80%;
+                            font-family: 'HY크리스탈M';
+                            background-color: rgba(255,255,255,0.6);
+                            border-radius: 20px;
+
+                            p {
+                                &:nth-of-type(1) {
+                                    font-size: 18px;
+                                    color: #999;
+                                    margin-bottom: 10px;
+                                }
+
+                                &:nth-of-type(2) {
+                                    font-size: 26px;
+                                    line-height: 1.5;
+                                    margin-bottom: 40px;
+                                }
+
+                                &:nth-of-type(3) {
+                                    font-size: 20px;
+                                    color: #000;
+                                    line-height: 1.5;
+                                }
+                            }
+
+                            h2 {
+                                display: inline-block;
+                                font-size: 36px;
+                                margin-right: 7px;
+                                margin-bottom: 40px;
+                            }
+
+                            h3 {
+                                color: #000;
+                                display: inline-block;
+                                font-size: 18px;
+                                font-weight: normal;
+                            }
                         }
+
+                        &:nth-of-type(even) {
+                            >.right {
+
+                                border: 3px double #d5646d;
+
+                                p {
+                                    &:nth-of-type(2) {
+                                        color: #d5646d;
+                                    }
+                                }
+                            }
+                        }
+
+                        &:nth-of-type(odd) {
+                            >.right {
+
+                                border: 3px double #656eb3;
+
+                                p {
+                                    &:nth-of-type(2) {
+                                        color: #656eb3;
+                                    }
+                                }
+                            }
+                        }
+
     
                         &.on {
                             display: flex;
@@ -396,6 +476,20 @@
                         font: 30px/1 'HY크리스탈M';
                     }
 
+                }
+
+                a {
+                    position: absolute;
+
+                    &:nth-of-type(1) {
+                        top: -20px;
+                        left: 0;
+                    }
+
+                    &:nth-of-type(2) {
+                        bottom: -20px;
+                        right: 0;
+                    }
                 }
 
                 &.active {

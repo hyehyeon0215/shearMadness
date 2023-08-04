@@ -24,10 +24,6 @@ a {
   top: -9999999px;
 }
 
-::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
-
 .scene1 {
   position: relative;
   width: 100%;
@@ -358,6 +354,7 @@ a {
   width: 100%;
   height: 100vh;
   background-color: #D9E9ED;
+  overflow: hidden;
 }
 .suspect .suspect-top {
   width: 100%;
@@ -516,6 +513,9 @@ a {
   height: 100%;
   cursor: pointer;
 }
+.suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li img {
+  transition: 0.5s;
+}
 .suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li:hover img {
   transform: scale(1.2);
 }
@@ -634,10 +634,15 @@ a {
   width: 100%;
   height: 100%;
   display: none;
+  position: relative;
 }
 .suspect .suspect-bottom .suspect-content .suspect-box .suspect-list {
-  flex: 6;
+  flex: 8;
+  width: 100%;
+  height: 90%;
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li {
   display: none;
@@ -646,19 +651,67 @@ a {
   position: absolute;
   top: 0;
   left: 0;
+  align-items: center;
+  gap: 20px;
 }
 .suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .left {
-  flex: 1;
-}
-.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .left > img {
   width: 100%;
   height: 100%;
-  object-fit: auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .left > img {
+  height: 100%;
+  object-fit: cover;
 }
 .suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right {
-  flex: 2;
-  padding: 50px;
-  background-color: #fff;
+  flex: 1;
+  padding: 30px 50px;
+  height: 80%;
+  font-family: "HY크리스탈M";
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right p:nth-of-type(1) {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 10px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right p:nth-of-type(2) {
+  font-size: 26px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right p:nth-of-type(3) {
+  font-size: 20px;
+  color: #000;
+  line-height: 1.5;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right h2 {
+  display: inline-block;
+  font-size: 36px;
+  margin-right: 7px;
+  margin-bottom: 40px;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .right h3 {
+  color: #000;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: normal;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li:nth-of-type(even) > .right {
+  border: 3px double #d5646d;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li:nth-of-type(even) > .right p:nth-of-type(2) {
+  color: #d5646d;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li:nth-of-type(odd) > .right {
+  border: 3px double #656eb3;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li:nth-of-type(odd) > .right p:nth-of-type(2) {
+  color: #656eb3;
 }
 .suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li.on {
   display: flex;
@@ -689,6 +742,17 @@ a {
   justify-content: center;
   align-items: center;
   font: 30px/1 "HY크리스탈M";
+}
+.suspect .suspect-bottom .suspect-content .suspect-box a {
+  position: absolute;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box a:nth-of-type(1) {
+  top: -20px;
+  left: 0;
+}
+.suspect .suspect-bottom .suspect-content .suspect-box a:nth-of-type(2) {
+  bottom: -20px;
+  right: 0;
 }
 .suspect .suspect-bottom .suspect-content .suspect-box.active {
   display: flex;
@@ -736,6 +800,42 @@ a {
   100% {
     top: 0%;
   }
+}
+.info {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(to top, #545479, #a8edea, #fed6e3);
+}
+.info article {
+  width: 100%;
+  height: 100vh;
+}
+.info article .info-inner {
+  width: 1500px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.info-navi {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  right: 50px;
+  padding: 50px 10px;
+  border-radius: 20px;
+  background-color: #D6656E;
+}
+.info-navi li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font: bold 20px/1 "맑은 고딕";
+  color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.info-navi li:last-of-type a {
+  border-bottom: none;
 }
 
 /*# sourceMappingURL=style.css.map */
