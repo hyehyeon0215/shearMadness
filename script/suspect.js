@@ -70,6 +70,7 @@ back.addEventListener("click", (e)=>{
     })
     suspect_init.style.display = "flex";
     suspect_init.classList.add("active");
+    suspect_box.classList.remove("active");
 })
 
 

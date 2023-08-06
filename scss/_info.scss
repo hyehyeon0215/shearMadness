@@ -2,17 +2,222 @@
     width: 100%;
     position: relative;
     background: linear-gradient(to top,  #545479, #a8edea, #fed6e3);
-    
-    article {
-        width: 100%;
-        height: 100vh;
 
-        .info-inner {
-            width: 1500px;
-            height: 100%;
-            margin: 0 auto;
+    .info-inner {
+        width: 1250px;
+        height: 100%;
+        margin: 0 auto;
+
+        article {
+            width: 100%;
+            min-height: 100vh;
+    
+            &.information {
+    
+                h2 {
+                    width: 100%;
+                    height: 200px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 100px;
+        
+                    a {
+                        display: block;
+                        width: 20%;
+                        height: 100%;
+                        img {
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+        
+                }
+    
+                .explain {
+                    display: flex;
+                    justify-content: space-between;
+                    position: relative;
+                    width: 100%;
+                    height: 480px;
+    
+                    .poster {
+                        width: 380px;
+                        height: 480px;
+                        background-color: #545479;
+                        position: relative;
+                        border-radius: 20px;
+    
+                        img {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 300px;
+                            height: 400px;
+                            transform: translate(-50%, -50%);
+                        }
+    
+                        .light {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 300px;
+                            height: 400px;
+                            transform: translate(-50%, -50%);
+                            box-shadow: inset 0px 0px 5px 3px rgba(0,0,0,0.5);
+                            overflow: hidden;
+                            z-index: 1;
+    
+                            .light-line {
+                                animation: lightdown 3s ease infinite;
+                                animation-delay: 3s;
+                                position: absolute;
+                                top: -280px;
+                                width: 500px;
+                                height: 130px;
+                                transform: skewY(-30deg);
+    
+                                
+                                span {
+                                    display: block;
+                                    width: 500px;
+                                    background-color: rgba(255,255,255,0.2);
+    
+    
+                                    &:nth-of-type(1) {
+                                        height: 100px;
+                                    }
+    
+                                    &:nth-of-type(2) {
+                                        margin-top: 10px;
+                                        height: 20px;
+                                    }
+                                }
+    
+                            }
+    
+    
+                        }
+    
+                        >ul {
+                            position: absolute;
+                            display: flex;
+    
+                            >li {
+                                width: 20px;
+                                height: 20px;
+                                background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(248,252,70,1) 100%);
+                                border-radius: 50%;
+                                animation: onoff 2s linear infinite;
+                            }
+    
+                            &:nth-of-type(1) {
+                                width: 300px;
+                                top: 10px;
+                                left: 40px;
+                                justify-content: space-around;
+                            }
+    
+                            &:nth-of-type(2) {
+                                height: 480px;
+                                flex-direction: column;
+                                top: 0px;
+                                left: 10px;
+                                justify-content: space-evenly;
+                            }
+    
+                            &:nth-of-type(3) {
+                                width: 300px;
+                                bottom: 10px;
+                                left: 40px;
+                                justify-content: space-around;
+                            }
+    
+                            &:nth-of-type(4) {
+                                height: 480px;
+                                flex-direction: column;
+                                top: 0px;
+                                right: 10px;
+                                justify-content: space-evenly;
+                            }
+    
+                        }
+                    }
+    
+                    p {
+                        margin-top: 50px;
+                        font: 20px/2 "맑은 고딕";
+    
+                        >span {
+                            font-weight: bold;
+                        }
+                    }
+    
+                    .keyword {
+                        position: absolute;
+                        right: 0;
+                        bottom: 50px;
+                        display: flex;
+                        gap: 15px;
+    
+                        li {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 10px 40px;
+                            background-color: #fff;
+                            border-radius: 15px;
+                            color:#D6656E;
+                            font-weight: bold;
+                        }
+    
+                    }
+                }
+
+                .casting {
+                    width: 100%;
+                    height: auto;
+
+                    .casting-value {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+
+                        >li {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+
+                            >ul {
+                                display: flex;
+                                width: 90%;
+                                justify-content: space-between;
+
+                                >li {
+                                    .casting-circle {
+                                        width: 150px;
+                                        height: 150px;
+                                        border-radius: 50%;
+                                        overflow: hidden;
+
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
         }
     }
+    
 }
 
 #info-navi {
@@ -40,5 +245,23 @@
                 border-bottom: none;
             }
         }
+    }
+}
+
+@keyframes onoff {
+    0% {
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(248,252,70,1) 100%);
+    }
+    100% {
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(136,138,41,1) 100%);
+    }
+}
+
+@keyframes lightdown {
+    0% {
+        top: -280px;
+    }
+    100% {
+        top: 500px;
     }
 }
