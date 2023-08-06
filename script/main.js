@@ -1,5 +1,5 @@
-const scene1 = document.querySelector(".scene1");
-const scene2 = document.querySelector(".scene2");
+const scene1 = document.querySelector("#scene1");
+const scene2 = document.querySelector("#scene2");
 
 const scene2_scroll = scene2.offsetTop;
 const base = -200;

@@ -1,4 +1,4 @@
-.info {
+#info {
     width: 100%;
     position: relative;
     background: linear-gradient(to top,  #545479, #a8edea, #fed6e3);
@@ -15,7 +15,7 @@
     }
 }
 
-.info-navi {
+#info-navi {
     position: fixed;
     z-index: 1;
     top: 50%;

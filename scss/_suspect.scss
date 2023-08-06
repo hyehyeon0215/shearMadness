@@ -1,4 +1,4 @@
-.suspect {
+#suspect {
     width: 100%;
     height: 100vh;
     background-color: #D9E9ED;
@@ -363,6 +363,7 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
+                            overflow: hidden;
                             
                             >img {
                                 height: 100%;
@@ -372,54 +373,62 @@
 
                         >.right {
                             flex: 1;
-                            padding: 30px 50px;
                             height: 80%;
+                            padding: 0 50px;
                             font-family: 'HY크리스탈M';
                             background-color: rgba(255,255,255,0.6);
                             border-radius: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-evenly;
 
-                            p {
-                                &:nth-of-type(1) {
+                            >.top {
+
+                                >p {
                                     font-size: 18px;
                                     color: #999;
-                                    margin-bottom: 10px;
+                                    margin-bottom: 7px;
                                 }
 
-                                &:nth-of-type(2) {
+                                h2 {
+                                    display: inline-block;
+                                    font-size: 36px;
+                                    margin-right: 7px;
+                                }
+    
+                                h3 {
+                                    color: #000;
+                                    display: inline-block;
+                                    font-size: 18px;
+                                    font-weight: normal;
+                                }
+
+                            }
+
+                            >.center {
+
+                                >p {
                                     font-size: 26px;
                                     line-height: 1.5;
-                                    margin-bottom: 40px;
                                 }
+                            }
 
-                                &:nth-of-type(3) {
+                            >.bottom {
+
+                                >p {
                                     font-size: 20px;
                                     color: #000;
                                     line-height: 1.5;
                                 }
                             }
-
-                            h2 {
-                                display: inline-block;
-                                font-size: 36px;
-                                margin-right: 7px;
-                                margin-bottom: 40px;
-                            }
-
-                            h3 {
-                                color: #000;
-                                display: inline-block;
-                                font-size: 18px;
-                                font-weight: normal;
-                            }
                         }
 
                         &:nth-of-type(even) {
                             >.right {
+                                border: 4px double #d5646d;
 
-                                border: 3px double #d5646d;
-
-                                p {
-                                    &:nth-of-type(2) {
+                                >.center {
+                                    p {
                                         color: #d5646d;
                                     }
                                 }
@@ -429,10 +438,10 @@
                         &:nth-of-type(odd) {
                             >.right {
 
-                                border: 3px double #656eb3;
+                                border: 4px double #656eb3;
 
-                                p {
-                                    &:nth-of-type(2) {
+                                >.center {
+                                    p {
                                         color: #656eb3;
                                     }
                                 }
@@ -479,6 +488,8 @@
                 }
 
                 a {
+                    font: 18px/1.5 'HY크리스탈M';
+
                     position: absolute;
 
                     &:nth-of-type(1) {
@@ -510,7 +521,7 @@
 
 
 
-.suspect-cursor {
+#suspect-cursor {
     font-size: 30px;
     width: 10em;
     height: 10em;
