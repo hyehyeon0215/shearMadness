@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Playfair+Display&display=swap");
 @font-face {
   font-family: "HY크리스탈M";
   src: url(../font/hy크리스탈m-yoond1004.ttf) format("truetype");
@@ -807,7 +808,7 @@ a {
 #info {
   width: 100%;
   position: relative;
-  background: linear-gradient(to top, #545479, #a8edea, #fed6e3);
+  background-color: #212121;
 }
 #info .info-inner {
   width: 1250px;
@@ -817,21 +818,23 @@ a {
 #info .info-inner article {
   width: 100%;
   min-height: 100vh;
+  padding-top: 50px;
 }
-#info .info-inner article.information h2 {
+#info .info-inner article.information > h2 {
   width: 100%;
-  height: 200px;
+  height: 250px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+#info .info-inner article.information > h2 a {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 100px;
-}
-#info .info-inner article.information h2 a {
-  display: block;
-  width: 20%;
+  align-items: flex-start;
+  width: 30%;
   height: 100%;
 }
-#info .info-inner article.information h2 a img {
+#info .info-inner article.information > h2 a img {
   height: 100%;
   object-fit: cover;
 }
@@ -841,6 +844,7 @@ a {
   position: relative;
   width: 100%;
   height: 480px;
+  margin-bottom: 100px;
 }
 #info .info-inner article.information .explain .poster {
   width: 380px;
@@ -927,16 +931,21 @@ a {
   justify-content: space-evenly;
 }
 #info .info-inner article.information .explain p {
-  margin-top: 50px;
-  font: 20px/2 "맑은 고딕";
+  margin-top: 20px;
+  font: 20px/2 "NotoSansKR";
+  color: #eee;
 }
-#info .info-inner article.information .explain p > span {
+#info .info-inner article.information .explain p > span:nth-of-type(1) {
+  font: 30px/1 "HY크리스탈M";
+  color: #fff;
+}
+#info .info-inner article.information .explain p > span:nth-of-type(2), #info .info-inner article.information .explain p > span:nth-of-type(3) {
   font-weight: bold;
 }
 #info .info-inner article.information .explain .keyword {
   position: absolute;
   right: 0;
-  bottom: 50px;
+  bottom: 10px;
   display: flex;
   gap: 15px;
 }
@@ -948,32 +957,60 @@ a {
   background-color: #fff;
   border-radius: 15px;
   color: #D6656E;
-  font-weight: bold;
+  box-shadow: 1px 1px 2px 1px rgba(255, 255, 255, 0.4);
+  font: bold 16px/1 "NotoSansKR";
+  letter-spacing: 1px;
 }
 #info .info-inner article.information .casting {
   width: 100%;
   height: auto;
 }
+#info .info-inner article.information .casting > h2 {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+#info .info-inner article.information .casting > h2 > img {
+  display: flex;
+  width: 350px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
 #info .info-inner article.information .casting .casting-value {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
+  padding-top: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
 }
 #info .info-inner article.information .casting .casting-value > li {
   width: 100%;
+  height: 200px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 #info .info-inner article.information .casting .casting-value > li > ul {
   display: flex;
-  width: 90%;
-  justify-content: space-between;
+  width: 45%;
+  justify-content: space-around;
+  position: relative;
+}
+#info .info-inner article.information .casting .casting-value > li > ul > li {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
 }
 #info .info-inner article.information .casting .casting-value > li > ul > li .casting-circle {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -981,6 +1018,179 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+#info .info-inner article.information .casting .casting-value > li > ul > li > p {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transform: rotateZ(35deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+#info .info-inner article.information .casting .casting-value > li > ul > li:hover > p {
+  animation: hover-rotate 0.5s linear;
+  animation-fill-mode: forwards;
+}
+#info .info-inner article.information .casting .casting-value > li > ul::before {
+  display: block;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  font: 18px/20px "NotoSansKR";
+  color: #eee;
+  position: absolute;
+  top: -50px;
+  letter-spacing: 1px;
+}
+#info .info-inner article.information .casting .casting-value > li > ul.jo::before {
+  content: "쉬어매드니스 원장 조호진役";
+}
+#info .info-inner article.information .casting .casting-value > li > ul.jang::before {
+  content: "쉬어매드니스 미용사 장미숙役";
+}
+#info .info-inner article.information .casting .casting-value > li > ul.oh::before {
+  content: "골동품 판매상 오준수役";
+}
+#info .info-inner article.information .casting .casting-value > li > ul.han::before {
+  content: "여사 한보현役";
+}
+#info .info-inner article.information .casting .casting-value > li > ul.gang::before {
+  content: "형사 강우진役";
+}
+#info .info-inner article.information .casting .casting-value > li > ul.young::before {
+  content: "형사 조영민役";
+}
+#info .info-inner article.schedule {
+  position: relative;
+  margin-top: 50px;
+}
+#info .info-inner article.schedule > h2 {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+#info .info-inner article.schedule > h2 > img {
+  display: flex;
+  width: 800px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+#info .info-inner article.schedule .schedule-wrap {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+#info .info-inner article.schedule .schedule-wrap .schedule-table {
+  width: 60%;
+  background-color: #fff;
+  border-radius: 20px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing {
+  width: 35%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 50px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing h2 {
+  font: bold26px/1 "arial";
+  text-align: center;
+  margin-bottom: 30px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .dayoftheweek {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #D6656E;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .dayoftheweek > li {
+  padding: 5px 0;
+  color: #fff;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .calendar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .calendar > li > ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .calendar > li > ul > li a {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .calendar > li > ul > li a.today {
+  background-color: #D6656E;
+  color: #fff;
+  font-weight: bold;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn {
+  width: 100%;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn > p {
+  font: 14px/1 "NotoSansKR";
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn > p:nth-of-type(1) {
+  margin-bottom: 20px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn > ul {
+  margin: 10px 0;
+  display: none;
+  justify-content: space-around;
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  border-radius: 20px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn > ul li a {
+  color: #000;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn > ul li a.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .turn > ul.active {
+  display: flex;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btn {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btn > li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #D6656E;
+  color: #eee;
 }
 
 #info-navi {
@@ -1019,6 +1229,16 @@ a {
   }
   100% {
     top: 500px;
+  }
+}
+@keyframes hover-rotate {
+  0% {
+    opacity: 0;
+    transform: rotateZ(35deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateZ(0deg);
   }
 }
 

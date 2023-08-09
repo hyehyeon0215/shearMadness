@@ -1,7 +1,10 @@
 #info {
     width: 100%;
     position: relative;
-    background: linear-gradient(to top,  #545479, #a8edea, #fed6e3);
+    // background: linear-gradient(to bottom,  #545479, #a8edea);
+    // background: linear-gradient(to bottom, #556E85, #f7f7f7);
+    background-color: #212121;
+    // background-color: #f4e9be;
 
     .info-inner {
         width: 1250px;
@@ -11,21 +14,24 @@
         article {
             width: 100%;
             min-height: 100vh;
+            padding-top: 50px;
     
             &.information {
-    
-                h2 {
+
+                >h2 {
                     width: 100%;
-                    height: 200px;
+                    height: 250px;
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin-bottom: 100px;
+                    justify-content: flex-start;
+                    margin-bottom: 50px;
         
                     a {
-                        display: block;
-                        width: 20%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        width: 30%;
                         height: 100%;
+                        
                         img {
                             height: 100%;
                             object-fit: cover;
@@ -40,6 +46,7 @@
                     position: relative;
                     width: 100%;
                     height: 480px;
+                    margin-bottom: 100px;
     
                     .poster {
                         width: 380px;
@@ -145,18 +152,25 @@
                     }
     
                     p {
-                        margin-top: 50px;
-                        font: 20px/2 "맑은 고딕";
+                        margin-top: 20px;
+                        font: 20px/2 "NotoSansKR";
+                        color: #eee;
     
                         >span {
-                            font-weight: bold;
+                            &:nth-of-type(1) {
+                                font: 30px/1 "HY크리스탈M";
+                                color: #fff;
+                            }
+                            &:nth-of-type(2), &:nth-of-type(3) {
+                                font-weight: bold;
+                            }
                         }
                     }
     
                     .keyword {
                         position: absolute;
                         right: 0;
-                        bottom: 50px;
+                        bottom: 10px;
                         display: flex;
                         gap: 15px;
     
@@ -168,7 +182,9 @@
                             background-color: #fff;
                             border-radius: 15px;
                             color:#D6656E;
-                            font-weight: bold;
+                            box-shadow: 1px 1px 2px 1px rgba(255,255,255,0.4);
+                            font: bold 16px/1 "NotoSansKR";
+                            letter-spacing: 1px;
                         }
     
                     }
@@ -178,27 +194,56 @@
                     width: 100%;
                     height: auto;
 
+                    >h2 {
+                        width: 100%;
+                        height: 200px;
+                        display: flex;
+                        justify-content: end;
+                        align-items: center;
+
+                        >img {
+                            display: flex;
+                            width: 350px;
+                            height: 100%;
+                            justify-content: center;
+                            align-items: center;
+
+
+                        }
+                    }
+
                     .casting-value {
                         display: flex;
                         flex-direction: column;
-                        justify-content: center;
+                        justify-content: space-around;
                         align-items: center;
                         width: 100%;
+                        padding-top: 50px;
+                        background-color: rgba(255,255,255,0.1);
+                        border-radius: 50px;
 
                         >li {
                             width: 100%;
+                            height: 200px;
                             display: flex;
                             justify-content: center;
+                            align-items: center;
 
                             >ul {
                                 display: flex;
-                                width: 90%;
-                                justify-content: space-between;
+                                width: 45%;
+                                justify-content: space-around;
+                                position: relative;
 
                                 >li {
+                                    width: 100px;
+                                    height: 100px;
+                                    border-radius: 50%;
+                                    position: relative;
+
                                     .casting-circle {
-                                        width: 150px;
-                                        height: 150px;
+                                        width: 100px;
+                                        height: 100px;
                                         border-radius: 50%;
                                         overflow: hidden;
 
@@ -208,10 +253,244 @@
                                             object-fit: cover;
                                         }
                                     }
+
+                                    >p {
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 50%;
+                                        background-color: rgba(0,0,0,0.7);
+                                        top:0;
+                                        left: 0;
+                                        transform-origin: top;
+                                        transform: rotateZ(35deg);
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        color: #fff;
+                                        opacity: 0;
+                                        transition: 0.5s;
+                                    }
+
+                                    &:hover {
+                                        >p {
+                                            animation: hover-rotate 0.5s linear;
+                                            animation-fill-mode: forwards;
+                                        }
+                                    }
+                                }
+
+                                &::before {
+                                    display: block;
+                                    width: 100%;
+                                    height: 20px;
+                                    text-align: center;
+                                    font: 18px/20px "NotoSansKR";
+                                    color: #eee;
+                                    position: absolute;
+                                    top: -50px;
+                                    letter-spacing: 1px;
+                                }
+                                
+                                &.jo {
+                                    &::before {
+                                        content: '쉬어매드니스 원장 조호진役'
+                                    }
+                                }
+
+                                &.jang {
+                                    &::before {
+                                        content: '쉬어매드니스 미용사 장미숙役'
+                                    }
+                                }
+                            
+                                &.oh {
+                                    &::before {
+                                        content: '골동품 판매상 오준수役'
+                                    }
+                                }
+                                
+                                &.han {
+                                    &::before {
+                                        content: '여사 한보현役'
+                                    }
+                                }
+                                
+                                &.gang {
+                                    &::before {
+                                        content:'형사 강우진役'
+                                    }
+                                }
+
+                                &.young {
+                                    &::before {
+                                        content:'형사 조영민役'
+                                    }
                                 }
                             }
                         }
 
+                    }
+                }
+            }
+
+            &.schedule {
+                position: relative;
+                margin-top: 50px;
+
+                >h2 {
+                    width: 100%;
+                    height: 200px;
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+
+                    >img {
+                        display: flex;
+                        width: 800px;
+                        height: 100%;
+                        justify-content: center;
+                        align-items: center;
+
+                    }
+                }
+
+                .schedule-wrap {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                
+                    .schedule-table {
+                        width: 60%;
+                        background-color: #fff;
+                        border-radius: 20px;
+
+                    }
+
+                    .ticketing {
+                        width: 35%;
+                        height: auto;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        background-color: #fff;
+                        border-radius: 20px;
+                        padding: 50px;
+
+                        h2 {
+                            font: bold26px/1 "arial";
+                            text-align: center;
+                            margin-bottom: 30px;
+                        }
+
+                        .dayoftheweek {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-around;
+                            background-color: #D6656E;
+                            border-radius: 15px;
+                            margin-bottom: 20px;
+
+                            >li {
+                                padding: 5px 0;
+                                color: #fff;
+                            }
+                        }
+
+                        .calendar {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            margin-bottom: 50px;
+
+                            >li {
+                                >ul {
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: space-around;
+
+                                    >li {
+                                        a {
+                                            display: flex;
+                                            width: 35px;
+                                            height: 35px;
+                                            border-radius: 50%;
+                                            justify-content: center;
+                                            align-items: center;
+                                            color: #000;
+
+                                            &.today {
+                                                background-color: #D6656E;
+                                                color: #fff;
+                                                font-weight: bold;
+                                            }
+
+    
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .turn {
+                            width: 100%;
+
+                            >p {
+                                font: 14px/1 'NotoSansKR';
+
+                                &:nth-of-type(1) {
+                                    margin-bottom: 20px;
+                                }
+        
+                            }
+
+                            >ul {
+                                margin: 10px 0;
+                                display: none;
+                                justify-content: space-around;
+                                background-color: #f8f8f8;
+                                padding: 20px 0;
+                                border-radius: 20px;
+
+                                li {
+                                    a {
+                                        color: #000;
+
+                                        &.active {
+                                            text-decoration: underline;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+
+                                &.active {
+                                    display: flex;
+                                }
+        
+                            }
+
+                        }
+
+                        .ticketing-btn {
+                            margin-top: 50px;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+    
+
+                            >li {
+                                a {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    padding: 15px;
+                                    border-radius: 15px;
+                                    background-color: #D6656E;
+                                    color: #eee;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -264,4 +543,9 @@
     100% {
         top: 500px;
     }
+}
+
+@keyframes hover-rotate {
+    0% {opacity: 0; transform: rotateZ(35deg);}
+    100% {opacity: 1; transform: rotateZ(0deg);}
 }

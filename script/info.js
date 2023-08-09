@@ -1,4 +1,12 @@
 //57a8f8f5d73e57cbff851e98074433b0
+const date = new Date();
+const today = date.getDate();
+const weeks = document.querySelectorAll(".week");
+const turn = document.querySelector(".turn");
+const turns = document.querySelectorAll(".turn>ul");
+const weekday = turn.querySelector(".weekday");
+const weekend = turn.querySelector(".weekday");
+const lastdays = turn.querySelector(".lastdays");
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -24,3 +32,62 @@ var marker = new kakao.maps.Marker({
 
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);
+
+
+weeks.forEach((el)=>{
+    let days = el.querySelectorAll("li > a");
+
+    days.forEach((el, index) => {
+
+        el.classList.remove("today");
+    
+        if (parseInt(el.innerHTML) == today) {
+            days[index].classList.add("today");
+        }
+        else if (parseInt(el.innerHTML) < today) {
+            days[index].style.opacity = ".1";
+            days[index].style.pointerEvents = "none";
+        }
+
+        if (index == 6) {
+            days[index].style.color = "red";
+        }
+
+        if (index == 0) {
+            days[index].style.color = "blue";
+        }
+    
+        el.addEventListener("click", ()=> {
+
+            weeks.forEach((el)=>{
+
+                let days = el.querySelectorAll("li > a");
+                
+                days.forEach ((el)=>{
+                    el.classList.remove("today");
+                })
+            })
+
+            days[index].classList.add("today");
+
+            turns.forEach((el)=>{
+                el.classList.remove("active");
+            })
+
+            if (index == 6 || index == 0) {
+                weekend.classList.add("active");
+            }
+            else if (parseInt(el.innerHTML) == 28 || parseInt(el.innerHTML) == 29 || parseInt(el.innerHTML) == 30 || parseInt(el.innerHTML) == 31) {
+                lastdays.classList.add("active");
+            }
+            else {
+                weekday.classList.add("active");
+            }
+
+            console.log(index);
+        
+        })
+    
+    })
+})
+
