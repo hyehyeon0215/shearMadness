@@ -5,8 +5,14 @@ const weeks = document.querySelectorAll(".week");
 const turn = document.querySelector(".turn");
 const turns = document.querySelectorAll(".turn>ul");
 const weekday = turn.querySelector(".weekday");
-const weekend = turn.querySelector(".weekday");
+const weekend = turn.querySelector(".weekend");
 const lastdays = turn.querySelector(".lastdays");
+const weekday_list = weekday.querySelectorAll("li>a");
+const weekend_list = weekend.querySelectorAll("li>a");
+const lastdays_list = lastdays.querySelectorAll("li>a");
+const turns_list = [weekday_list, weekend_list, lastdays_list];
+const random_num = document.querySelector(".num");
+
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -56,6 +62,7 @@ weeks.forEach((el)=>{
         if (index == 0) {
             days[index].style.color = "blue";
         }
+
     
         el.addEventListener("click", ()=> {
 
@@ -66,7 +73,9 @@ weeks.forEach((el)=>{
                 days.forEach ((el)=>{
                     el.classList.remove("today");
                 })
+
             })
+
 
             days[index].classList.add("today");
 
@@ -84,10 +93,54 @@ weeks.forEach((el)=>{
                 weekday.classList.add("active");
             }
 
-            console.log(index);
+            const random = Math.random();
+            random_num.textContent = Math.floor( random * 160 );
         
         })
     
     })
 })
 
+
+
+weekday_list.forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        weekday_list.forEach((el)=>{
+            el.classList.remove("active");
+        })
+        
+        el.classList.add("active");
+
+        const random = Math.random();
+        random_num.textContent = Math.floor( random * 160 );
+
+    })
+})
+
+weekend_list.forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        weekend_list.forEach((el)=>{
+            el.classList.remove("active");
+        })
+        
+        el.classList.add("active");
+
+        const random = Math.random();
+        random_num.textContent = Math.floor( random * 160 );
+
+    })
+})
+
+lastdays_list.forEach((el)=>{
+    el.addEventListener("click", ()=>{
+        lastdays_list.forEach((el)=>{
+            el.classList.remove("active");
+        })
+        
+        el.classList.add("active");
+
+        const random = Math.random();
+        random_num.textContent = Math.floor( random * 160 );
+
+    })
+})

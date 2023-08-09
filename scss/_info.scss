@@ -373,7 +373,7 @@
                         position: absolute;
                         top: 0;
                         right: 0;
-                        background-color: #fff;
+                        background-color: #ffffff;
                         border-radius: 20px;
                         padding: 50px;
 
@@ -425,6 +425,10 @@
                                                 font-weight: bold;
                                             }
 
+                                            &.click-none {
+                                                pointer-events: none;
+                                            }
+
     
                                         }
                                     }
@@ -437,11 +441,7 @@
 
                             >p {
                                 font: 14px/1 'NotoSansKR';
-
-                                &:nth-of-type(1) {
-                                    margin-bottom: 20px;
-                                }
-        
+                                margin-bottom: 20px;
                             }
 
                             >ul {
@@ -467,6 +467,10 @@
                                     display: flex;
                                 }
         
+                            }
+
+                            >span {
+                                font: 14px/1 'NotoSansKR';
                             }
 
                         }
