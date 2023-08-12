@@ -39,6 +39,7 @@ function typing_event(){
     }
 }
 
+
 function exe() {
     setInterval(typing_event, 200);
 }

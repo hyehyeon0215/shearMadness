@@ -432,7 +432,7 @@ a {
   height: 100%;
 }
 #suspect .suspect-bottom .suspect-content .suspect-init {
-  display: block;
+  display: flex;
   position: relative;
   width: 100%;
   height: 100%;
@@ -440,6 +440,9 @@ a {
   left: 0;
 }
 #suspect .suspect-bottom .suspect-content .suspect-init > .left {
+  display: none;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init > .center {
   width: 90%;
   height: 100%;
   background-size: cover;
@@ -449,10 +452,10 @@ a {
   left: 50%;
   transform: translateX(-50%);
 }
-#suspect .suspect-bottom .suspect-content .suspect-init > .left .click-txt {
+#suspect .suspect-bottom .suspect-content .suspect-init > .center .click-txt {
   display: none;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init > .left .suspect-people {
+#suspect .suspect-bottom .suspect-content .suspect-init > .center .suspect-people {
   position: absolute;
   top: 20%;
   left: 45%;
@@ -461,23 +464,127 @@ a {
   width: 80%;
   display: flex;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init > .left .suspect-people > li {
+#suspect .suspect-bottom .suspect-content .suspect-init > .center .suspect-people > li {
   flex: 1;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init > .left .suspect-people > li:nth-of-type(even) {
+#suspect .suspect-bottom .suspect-content .suspect-init > .center .suspect-people > li:nth-of-type(even) {
   margin-top: 30px;
 }
 #suspect .suspect-bottom .suspect-content .suspect-init > .right {
   display: none;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active {
-  display: flex;
-  gap: 20px;
-}
 #suspect .suspect-bottom .suspect-content .suspect-init.active > .left {
+  display: block;
+  width: 15%;
+  height: 100%;
+  position: relative;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign {
+  display: flex;
+  width: 80px;
+  height: 300px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translateX(-50%);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .top {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .top .circle1 {
+  width: 90%;
+  height: 80%;
+  background-color: #ddd;
+  border-radius: 50px 50px 0 0;
+  box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .top .square1 {
+  width: 100%;
+  height: 20%;
+  background-color: #ddd;
+  box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center {
+  flex: 4;
+  width: 85%;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  border-left: 1px solid #eee;
+  box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center ul {
+  width: 100%;
+  position: relative;
+  top: -200%;
+  animation: down 15s linear infinite;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center ul li {
+  width: 100px;
+  height: 20px;
+  margin-bottom: 20px;
+  transform: skewY(30deg);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center ul li:nth-of-type(odd) {
+  background-color: #ED2124;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center ul li:nth-of-type(even) {
+  background-color: #323895;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center ul:hover {
+  animation-play-state: paused;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .center p {
+  writing-mode: vertical-lr;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .bottom {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .bottom .circle2 {
+  width: 90%;
+  height: 80%;
+  background-color: #ddd;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .bottom .square2 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 20%;
+  background-color: #ddd;
+  box-shadow: 1px 0px 4px 0px rgba(0, 0, 0, 0.3);
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .next2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .salon-sign .next2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center {
   display: block;
   width: 85%;
   height: 100%;
@@ -488,7 +595,7 @@ a {
   left: auto;
   transform: translateX(0);
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .click-txt {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .click-txt {
   display: block;
   position: absolute;
   left: 30px;
@@ -496,10 +603,10 @@ a {
   color: #656EB3;
   font: 22px/1 "HY크리스탈M";
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .click-txt span {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .click-txt span {
   color: #D6656E;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .suspect-people {
   position: absolute;
   top: 20%;
   left: 50%;
@@ -508,19 +615,19 @@ a {
   width: 80%;
   display: flex;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .suspect-people > li {
   flex: 1;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li img {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .suspect-people > li img {
   transition: 0.5s;
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li:hover img {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .suspect-people > li:hover img {
   transform: scale(1.2);
 }
-#suspect .suspect-bottom .suspect-content .suspect-init.active > .left .suspect-people > li:nth-of-type(even) {
+#suspect .suspect-bottom .suspect-content .suspect-init.active > .center .suspect-people > li:nth-of-type(even) {
   margin-top: 30px;
 }
 #suspect .suspect-bottom .suspect-content .suspect-init.active > .right {
@@ -656,8 +763,8 @@ a {
   gap: 20px;
 }
 #suspect .suspect-bottom .suspect-content .suspect-box .suspect-list > li > .left {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -747,8 +854,11 @@ a {
   font: 30px/1 "HY크리스탈M";
 }
 #suspect .suspect-bottom .suspect-content .suspect-box a {
-  font: 18px/1.5 "HY크리스탈M";
+  font: 18px/1 "HY크리스탈M";
+  color: #000;
   position: absolute;
+  display: flex;
+  align-items: center;
 }
 #suspect .suspect-bottom .suspect-content .suspect-box a:nth-of-type(1) {
   top: -20px;
@@ -757,6 +867,62 @@ a {
 #suspect .suspect-bottom .suspect-content .suspect-box a:nth-of-type(2) {
   bottom: -20px;
   right: 0;
+}
+#suspect .suspect-bottom .suspect-content .suspect-box a span {
+  display: inline-block;
+  position: relative;
+  width: 0px;
+  height: 1px;
+  background-color: #000;
+  margin: 0px 10px;
+  transition: 0.5s;
+}
+#suspect .suspect-bottom .suspect-content .suspect-box a:hover > span {
+  width: 100px;
+}
+#suspect .suspect-bottom .suspect-content .suspect-box a:hover:nth-of-type(1) > span::before {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 10px;
+  transform: rotate(-45deg);
+  background-color: #000;
+  left: -1px;
+  top: -3px;
+}
+#suspect .suspect-bottom .suspect-content .suspect-box a:hover:nth-of-type(1) > span::after {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 10px;
+  transform: rotate(45deg);
+  background-color: #000;
+  left: -1px;
+  top: 3px;
+}
+#suspect .suspect-bottom .suspect-content .suspect-box a:hover:nth-of-type(2) > span::before {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 10px;
+  transform: rotate(45deg);
+  background-color: #000;
+  right: -1px;
+  top: -3px;
+}
+#suspect .suspect-bottom .suspect-content .suspect-box a:hover:nth-of-type(2) > span::after {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 10px;
+  transform: rotate(-45deg);
+  background-color: #000;
+  right: -1px;
+  top: 3px;
 }
 #suspect .suspect-bottom .suspect-content .suspect-box.active {
   display: flex;
@@ -1112,9 +1278,13 @@ a {
 #info .info-inner article.schedule .schedule-wrap .schedule-table tbody tr td {
   padding: 5px 7px;
   border: 1px solid #eee;
+  user-select: none;
 }
 #info .info-inner article.schedule .schedule-wrap .schedule-table tbody tr td:last-of-type {
   border-right: none;
+}
+#info .info-inner article.schedule .schedule-wrap .schedule-table tbody tr td:hover {
+  background-color: #fed6e3;
 }
 #info .info-inner article.schedule .schedule-wrap .ticketing {
   width: 35%;
@@ -1199,14 +1369,13 @@ a {
 #info .info-inner article.schedule .schedule-wrap .ticketing .turn > span {
   font: 14px/1 "NotoSansKR";
 }
-#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btn {
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns {
   margin-top: 50px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btn > li a {
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1214,25 +1383,54 @@ a {
   border-radius: 15px;
   background-color: #D6656E;
   color: #fff;
-  position: relative;
+  font: 16px/1 "NotoSansKR";
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5);
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div {
+  display: flex;
   overflow: hidden;
+  text-shadow: 0 16px 0 #fff;
 }
-#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btn > li a::after {
-  position: absolute;
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span {
   display: block;
-  content: "";
-  width: 500px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.1);
-  top: 0;
-  left: -200%;
-  z-index: 1;
-  transform: skewY(-30deg);
-  transition: 0.5s;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease;
 }
-#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btn > li a:hover::after {
-  animation: btn 2s ease infinite;
-  animation-fill-mode: forwards;
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(1) {
+  transition-delay: 0.05s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(3) {
+  transition-delay: 0.15s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(4) {
+  transition-delay: 0.2s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(5) {
+  transition-delay: 0.25s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(6) {
+  transition-delay: 0.3s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(7) {
+  transition-delay: 0.35s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(8) {
+  transition-delay: 0.4s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(9) {
+  transition-delay: 0.45s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(10) {
+  transition-delay: 0.5s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a > div span:nth-child(11) {
+  transition-delay: 0.55s;
+}
+#info .info-inner article.schedule .schedule-wrap .ticketing .ticketing-btns > li a:hover span {
+  transform: translateY(-16px) translateZ(0);
 }
 #info .info-inner article.theater {
   position: relative;
@@ -1274,20 +1472,25 @@ a {
   z-index: 1;
   top: 50%;
   right: 50px;
-  padding: 50px 10px;
+  padding: 30px 15px;
   border-radius: 20px;
   background-color: #D6656E;
+  box-shadow: inset -2px 0px 2px 0px rgba(255, 255, 255, 0.3);
 }
-#info-navi li a {
+#info-navi li > a {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px;
-  font: bold 20px/1 "맑은 고딕";
+  font: normal 18px/1 "NotoSansKR";
   color: #fff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgb(255, 220, 220);
 }
-#info-navi li:last-of-type a {
+#info-navi li:first-of-type > a {
+  font-weight: bold;
+}
+#info-navi li:last-of-type > a {
+  font-weight: bold;
   border-bottom: none;
 }
 

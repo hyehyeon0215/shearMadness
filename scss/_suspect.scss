@@ -92,8 +92,7 @@
             height: 100%;
 
             .suspect-init {
-                display: block;
-                // display: none;
+                display: flex;
                 position: relative;
                 width: 100%;
                 height: 100%;
@@ -101,6 +100,11 @@
                 left: 0;
 
                 >.left {
+                    display: none;
+
+                }
+
+                >.center {
                     width: 90%;
                     height: 100%;
                     background-size: cover;
@@ -141,10 +145,137 @@
                 }
 
                 &.active {
-                    display: flex;
-                    gap: 20px;
 
                     >.left {
+                        display: block;
+                        width: 15%;
+                        height: 100%;
+                        position: relative;
+
+                        .salon-sign {
+                            display: flex;
+                            width: 80px;
+                            height: 300px;
+                            padding: 10px;
+                            flex-direction: column;
+                            align-items: center;
+                            position: absolute;
+                            left: 50%;
+                            top: 15%;
+                            transform: translateX(-50%);
+                        
+                            .top {
+                                flex: 1;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                position: relative;
+                            
+                                .circle1 {
+                                    width: 90%;
+                                    height: 80%;
+                                    background-color: #ddd;
+                                    border-radius: 50px 50px 0 0;
+                                    box-shadow: 1px 0px 4px 0px rgba(0,0,0,0.3);
+                                }
+                            
+                                .square1 {
+                                    width: 100%;
+                                    height: 20%;
+                                    background-color: #ddd;
+                                    box-shadow: 1px 0px 4px 0px rgba(0,0,0,0.3);
+                                }
+                            }
+                            
+                            .center {
+                                flex: 4;
+                                width: 85%;
+                                height: 100%;
+                                background-color: #fff;
+                                overflow: hidden;
+                                border-left: 1px solid #eee;
+                                box-shadow: 1px 0px 4px 0px rgba(0,0,0,0.3);
+                            
+                                ul {
+                                    width: 100%;
+                                    position: relative;
+                                    top: -200%;;
+                                    animation: down 15s linear infinite;
+                            
+                                    li {
+                                        width: 100px;
+                                        height: 20px;
+                                        margin-bottom: 20px;
+                                        transform: skewY(30deg);
+                            
+                                        &:nth-of-type(odd) {
+                                            background-color: #ED2124;
+                                        }
+                            
+                                        &:nth-of-type(even) {
+                                            background-color: #323895;
+                                        }
+                            
+                                        
+                                    }
+                            
+                                    &:hover {
+                                        animation-play-state: paused;
+                                    }
+                                }
+                            
+                                p {
+                                    writing-mode: vertical-lr;
+                                }
+                            
+                            }
+                            
+                            .bottom {
+                                flex: 1;
+                                // background-color: aquamarine;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            
+                                .circle2 {
+                                    width: 90%;
+                                    height: 80%;
+                                    background-color: #ddd;
+                                    border-radius: 0 0 50px 50px;
+                                    box-shadow: 1px 0px 4px 0px rgba(0,0,0,0.3);
+                                }
+                            
+                                .square2 {
+                                    position: relative;
+                                    z-index: 1;
+                                    width: 100%;
+                                    height: 20%;
+                                    background-color: #ddd;
+                                    box-shadow: 1px 0px 4px 0px rgba(0,0,0,0.3);
+                                }
+                            }
+
+                            .next2 {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+                    }
+
+                    >.center {
                         display: block;
                         width: 85%;
                         height: 100%;
@@ -357,8 +488,8 @@
                         gap: 20px;
     
                         >.left {
-                            width: 100%;
-                            height: 100%;
+                            width: 90%;
+                            height: 90%;
                             flex: 1;
                             display: flex;
                             justify-content: center;
@@ -488,9 +619,11 @@
                 }
 
                 a {
-                    font: 18px/1.5 'HY크리스탈M';
-
+                    font: 18px/1 'HY크리스탈M';
+                    color: #000;
                     position: absolute;
+                    display: flex;
+                    align-items: center;
 
                     &:nth-of-type(1) {
                         top: -20px;
@@ -500,6 +633,78 @@
                     &:nth-of-type(2) {
                         bottom: -20px;
                         right: 0;
+                    }
+
+                    span {
+                        display: inline-block;
+                        position: relative;
+                        width: 0px;
+                        height: 1px;
+                        background-color: #000;
+                        margin: 0px 10px;
+                        transition: 0.5s;
+                    }
+
+                    &:hover {
+                        >span {
+                            width: 100px;
+                        }
+
+                        &:nth-of-type(1) {
+                            >span {
+                                &::before {
+                                    display: block;
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    width: 10px;
+                                    transform: rotate(-45deg);
+                                    background-color: #000; 
+                                    left: -1px;
+                                    top: -3px;
+                                }
+        
+                                &::after {
+                                    display: block;
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    width: 10px;
+                                    transform: rotate(45deg);
+                                    background-color: #000; 
+                                    left: -1px;
+                                    top: 3px;
+                                }
+                            }
+                        }
+
+                        &:nth-of-type(2) {
+                            >span {
+                                &::before {
+                                    display: block;
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    width: 10px;
+                                    transform: rotate(45deg);
+                                    background-color: #000; 
+                                    right: -1px;
+                                    top: -3px;
+                                }
+        
+                                &::after {
+                                    display: block;
+                                    content: '';
+                                    position: absolute;
+                                    height: 1px;
+                                    width: 10px;
+                                    transform: rotate(-45deg);
+                                    background-color: #000; 
+                                    right: -1px;
+                                    top: 3px;
+                                }
+                            }
+                        }
                     }
                 }
 
